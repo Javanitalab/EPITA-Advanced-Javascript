@@ -1,5 +1,5 @@
 # How to run
-install docker and run the dockerfile! 
+install docker and run the docker-compose up in the directory of project! 
 
 # API for verify
 since the question and the code already written wasn't specifying what is the request body, I designed my own request body.
@@ -35,7 +35,7 @@ The response should be like this
 }
 ```
 
-## Things to do
+## Things to do ( TASKS )
 
 - Add vérification to the route already created
 - Finished the verify route to send the response to the user
