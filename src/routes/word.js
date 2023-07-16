@@ -52,6 +52,20 @@ Router.put('/:id', async (request, response) => {
       return response.status(400).json({ error: error.message });
     }
   });
+
+  // Delete a word by ID
+Router.delete('/:id', async (request, response) => {
+    try {
+      const deletedWord = await WordModel.findByIdAndRemove(request.params.id);
+      if (!deletedWord) {
+        return response.status(404).json({ error: 'Word not found' });
+      }
+      return response.json({ message: 'Word deleted successfully' });
+    } catch (error) {
+      return response.status(500).json({ error: error.message });
+    }
+  });
+  
   
   
 
