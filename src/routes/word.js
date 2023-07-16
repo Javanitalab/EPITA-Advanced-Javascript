@@ -65,6 +65,20 @@ Router.delete('/:id', async (request, response) => {
       return response.status(500).json({ error: error.message });
     }
   });
+
+  // Get a word by ID
+Router.get('/:id', async (request, response) => {
+    try {
+      const word = await WordModel.findById(request.params.id);
+      if (!word) {
+        return response.status(404).json({ error: 'Word not found' });
+      }
+      return response.json(word);
+    } catch (error) {
+      return response.status(500).json({ error: error.message });
+    }
+  });
+  
   
   
   
