@@ -10,6 +10,7 @@ Router.post('/', async (request, response) => {
         name: word
     });
 
+
     try {
 
         await wordModel.save();
@@ -34,6 +35,24 @@ Router.get('/', async (request, response) => {
       return response.status(500).json({ error: error.message });
     }
   });
+
+  // Update a word by ID
+Router.put('/:id', async (request, response) => {
+    try {
+      const updatedWord = await WordModel.findByIdAndUpdate(
+        request.params.id,
+        { name: request.body.word },
+        { new: true }
+      );
+      if (!updatedWord) {
+        return response.status(404).json({ error: 'Word not found' });
+      }
+      return response.json(updatedWord);
+    } catch (error) {
+      return response.status(400).json({ error: error.message });
+    }
+  });
+  
   
 
 module.exports = Router;
