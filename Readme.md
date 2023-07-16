@@ -1,6 +1,7 @@
-# Motus
+# How to run
+install docker and run the dockerfile! 
 
-## The game
+## The game ( Assignment )
 The user can create a game, in with, he will search for a word.
 You save each try, and the result.
 
