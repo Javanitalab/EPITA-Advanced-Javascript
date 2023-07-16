@@ -25,4 +25,15 @@ Router.post('/', async (request, response) => {
     }
 });
 
+// Get all words
+Router.get('/', async (request, response) => {
+    try {
+      const words = await WordModel.find();
+      return response.json(words);
+    } catch (error) {
+      return response.status(500).json({ error: error.message });
+    }
+  });
+  
+
 module.exports = Router;
